@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Hola mundo!</h1>
+
+    <br>
+    <label for="entry">Escribe un comentario</label>
+    <br><br>
+  
+    <form method="post">
+
+        <textarea name="content" id="entry" cols="30" rows="10"></textarea>
+        <input type="submit">
+    </form>
+
+    <h2>Content</h2>
+    {% if request.method == "POST" %}
+
+    <h2>{{ entry }}</h2>
+
+    {% endif %}
+
+    <br><br>
+
+    <h2>Content 2</h2>
+
+    <p> 
+        {% for entrys in entries %}
+        <h2>Date time: {{ entrys[2] }}</h2> 
+
+        <small class="form-text text-muted">{{ entrys[0] }}</small>
+
+        {% endfor %}
+    </p>
+   
+
+
+
+
+</body>
+</html>

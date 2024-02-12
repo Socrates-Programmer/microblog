@@ -1,0 +1,4 @@
+flask
+pymonogo[srv]
+python-dotenv
+gunicorn

@@ -1,3 +1,18 @@
+.body{
+    background-color: rgb(245, 247, 247);
+}
+
 h1{
     color: blue;
+}
+
+.content{
+
+    margin: 2%;
+    
+}
+
+.textare{
+    margin: 1%;
+    padding: 1%;
 }

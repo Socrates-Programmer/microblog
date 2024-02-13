@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import datetime
 from pymongo import MongoClient
 import os
@@ -11,21 +11,29 @@ def create_app():
 
     client = MongoClient(os.getenv("MONGODB_URI"))
     app.db = client.microblog
-    entries = []
 
     @app.route("/", methods = ["GET", "POST"])
     def home():
-
         if request.method == "POST":
             entry_content = request.form.get("content")
             fotmatted_date = datetime.datetime.today().strftime("%Y-%m-%d")
-            app.db.entries.insert_one({"content": entry_content, "date": fotmatted_date})
 
+            name_user = request.form.get("name")
+
+            app.db.entries.insert_one( {
+                "content": entry_content,
+                "date": fotmatted_date,
+                "name": name_user,
+                } )
+            
         entries_with_date = [ 
             (
             entry["content"],
             entry["date"],
-            datetime.datetime.strptime(entry["date"], "%Y-%m-%d").strftime("%b-%d"))
+            datetime.datetime.strptime(entry["date"], "%Y-%m-%d").strftime("%b-%d"),
+            entry["name"],
+            )
+            
             for entry in app.db.entries.find({})
             ]
             

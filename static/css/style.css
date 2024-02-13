@@ -16,3 +16,17 @@ h1{
     margin: 1%;
     padding: 1%;
 }
+
+#form1{
+    padding: 1%;
+}
+
+h5{
+    font-family: 'Times New Roman', Times, serif;
+    color:blue;
+    margin-right: 8px;
+}
+
+.user{
+    display: flex;
+}

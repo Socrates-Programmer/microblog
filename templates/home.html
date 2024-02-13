@@ -12,14 +12,21 @@
 
     <h1>Marcos A - DEPLOY</h1>
 
-    <label for="entry">Escribe un comentario:</label>
 
   
 
-        <form method="post" class="row g-3 needs-validation" novalidate>
+        <form method="post" class="row g-3 needs-validation" novalidate id="form1">
+            <div class="col-12" id="form1">
+                <div class="col-md-4">
+                    <label for="validationCustom01" class="form-label">First name</label>
+                    <input type="text" class="form-control" name="name" id="entry" required>
+                    <div class="valid-feedback">
 
-            <div class="col-12">
-                <textarea name="content" id="entry" cols="30" rows="10" class="textare"></textarea>
+            </div>
+            <label for="entry">Escribe un comentario:</label>
+
+            <div class="col-12" id="form1">
+                <textarea name="content" id="entry"  cols="30" rows="10" class="textare" required></textarea>
                 <div>            
                     <input class="btn btn-primary" type="submit"></input>
                 </div>
@@ -34,8 +41,12 @@
     <p> 
         {% for entrys in entries %}
         <h2>Date time: {{ entrys[2] }}</h2> 
+<div class="user"><h5>User Name: </h5><p>{{ entrys[3] }}</p></div>
+        
 
-        <small class="form-text text-muted">{{ entrys[0] }}</small>
+        <label for="">Conten:</label>
+
+        <p>{{ entrys[0] }}</p>
 
         {% endfor %}
     </p>

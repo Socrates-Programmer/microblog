@@ -14,19 +14,21 @@
 
 
   
-
+        {% if error %}
+      <p class="rojo">   {{ error }}</p>
+        {% endif %}
         <form method="post" class="row g-3 needs-validation" novalidate id="form1">
             <div class="col-12" id="form1">
                 <div class="col-md-4">
                     <label for="validationCustom01" class="form-label">First name</label>
-                    <input type="text" class="form-control" name="name" id="entry" required>
+                    <input type="text" class="form-control" name="name" id="entry">
                     <div class="valid-feedback">
 
             </div>
             <label for="entry">Escribe un comentario:</label>
 
             <div class="col-12" id="form1">
-                <textarea name="content" id="entry"  cols="30" rows="10" class="textare" required></textarea>
+                <textarea name="content" id="entry"  cols="30" rows="10" class="textare"></textarea>
                 <div>            
                     <input class="btn btn-primary" type="submit"></input>
                 </div>
@@ -36,6 +38,7 @@
   
         </form>
 <br>
+
     <h2>Content - Database - MONGO:</h2>
 <br>
     <p> 
